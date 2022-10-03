@@ -1,0 +1,37 @@
+﻿<h1>WELCOME TO THE SIGN UP PAGES</h1>
+
+
+
+@*@model List<Signup_with_Login.dbo_connet.Student_tbl>
+
+<h1>*****************WELCOME TO INDEX PAGE***************</h1>
+
+@Html.ActionLink("NewCreate","Signup","Home")
+
+<table class="table table-bordered table-hover table-responsive">
+    <tr>
+        <th>Id</th>
+        <th>First_Name</th>
+        <th>Last_Name</th>
+        <th>Email</th>
+        <th>Password</th>
+        <th>Practice_Field</th>
+        <th>Role</th>
+      
+       
+    </tr>
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>@item.Id</td>
+    <td>@item.First_Name</td>
+    <td>@item.Last_Name</td>
+    <td>@item.Email</td>
+    <td>@item.Password</td>
+    <td>@item.Practice_Field</td>
+    <td>@item.Role</td>
+ 
+
+</tr>
+    }
+</table>*@

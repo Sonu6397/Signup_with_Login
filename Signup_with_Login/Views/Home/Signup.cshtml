@@ -1,0 +1,227 @@
+﻿@{ ViewBag.Title = "Create"; }
+<h1 style="padding:.9rem 1rem; width:97%; margin:0rem auto;">Sign Up</h1>
+
+@model  Signup_with_Login.dbo_connet.Student_tbl
+<div class="bg-primary">
+    <h2 style="padding:.9rem 0rem; width:95%; margin:0rem auto;">Registation Form</h2>
+</div>
+@using (Html.BeginForm("Signup", "Home", FormMethod.Post))
+{
+@Html.HiddenFor(m => m.Id)
+                <section>
+                    <div class="container" style="padding:0px;margin-top:5px">
+                        <div class="col-sm-12">
+                            <div class="bg-light-color1 alert-success py-2">
+                                <div class="row">
+                                    <div class="col-sm-9 col-lg-4 mt-2 mt-sm-4">
+                                        <div class="form-group mb-0 bg-light-color1" data-toggle="tooltip" data-placement="top" title="First Name">
+
+                                            @Html.TextBoxFor(m => m.First_Name, new { @class = "form-control", @required = "required", placeholder = "First Name" })
+                                            @Html.ValidationMessageFor(m => m.First_Name, "", new { @class = "error" })
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-9 col-lg-4 mt-2 mt-sm-4">
+                                        <div class="form-group mb-0 bg-light-color1" data-toggle="tooltip" data-placement="top" title="Last Name">
+
+                                            @Html.TextBoxFor(m => m.Last_Name, new { @class = "form-control", placeholder = "Last Name" })
+                                            @Html.ValidationMessageFor(m => m.Last_Name, "", new { @class = "error" })
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-9 col-lg-4 mt-2 mt-sm-4">
+                                        <div class="form-group mb-0 bg-light-color1" data-toggle="tooltip" data-placement="top" title="Email">
+
+                                            @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "Email" })
+                                            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "error" })
+
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-9 col-lg-4 mt-2 mt-sm-4">
+                                        <div class="form-group mb-0 bg-light-color1" data-toggle="tooltip" data-placement="top" title="Password">
+
+                                            @Html.TextBoxFor(m => m.Password, new { @class = "form-control", placeholder = "Password" })
+                                            @Html.ValidationMessageFor(m => m.Password, "", new { @class = "error" })
+
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-9 col-lg-4 mt-2 mt-sm-4">
+                                        <div class="form-group mb-0 bg-light-color1" data-toggle="tooltip" data-placement="top" title="Practice Field">
+
+                                            @Html.TextBoxFor(m => m.Practice_Field, new { @class = "form-control", placeholder = "Practice Field" })
+                                            @Html.ValidationMessageFor(m => m.Practice_Field, "", new { @class = "error" })
+
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-9 col-lg-4 mt-2 mt-sm-4">
+                                        <div class="form-group mb-0 bg-light-color1" data-toggle="tooltip" data-placement="top" title="Role">
+
+                                            @Html.TextBoxFor(m => m.Role, new { @class = "form-control", placeholder = "Role" })
+                                            @Html.ValidationMessageFor(m => m.Role, "", new { @class = "error" })
+
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 ">
+                                        <button type="submit">Submit</button>
+                                        <button type="Reset" class="btn-danger">Reset</button>
+                                    </div>
+                                    <div class="col-sm-9 col-lg-4 mt-2 mt-sm-4">
+                                        <form name="form1" method="post" enctype="multipart/form-data" action="api/upload">
+
+                                            <div>
+                                                <label for="image1">Decoment File</label>
+                                                <input name="image1" type="file" />
+                                            </div>
+
+
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </section>
+
+
+                                <partial name="_list" />
+}
+
+
+@section   Scripts {
+    <environment names="Development,Staging,Production">
+
+        <style>
+            button {
+                background: green;
+                border: none;
+                color: white;
+                padding: .5rem 11.8rem;
+            }
+            .btn-danger{
+                margin-left:10rem
+            }
+            .alert-success {
+                color: #3c763d;
+                background-color: #dff0d8;
+                border-color: #d6e9c6;
+                width: 97%;
+
+            }
+        </style>
+
+        @*<style>
+                .lable {
+                    margin: 0px;
+                    padding: 0px;
+                    font-size: 100px;
+                    margin-left: 124px;
+                }
+
+                .btn-primary {
+                    color: #fff;
+                    background-color: #337ab7;
+                    margin-left: -103px;
+                    margin-right: -105px;
+                    border-color: #2e6da4;
+                }
+
+                .main-content {
+                    min-height: 0px !important;
+                }
+                .col-sm-12 {
+                    display: flex;
+                    justify-content: center;
+                    align-items:center;
+                }
+                .col-sm-12 button {
+                     background:green;
+                     padding:.5rem 9rem;
+                     border:none;
+                     color:white;
+                 }
+                h1, .h1, h2, .h2, h3, .h3 {
+                    margin-top: 20px;
+                    margin-left: 600px;
+                    margin-right: 134px;
+                    margin-bottom: 10px;
+                }
+
+                .accordion .fa {
+                    margin-right: 0.5rem;
+                }
+
+                .card .card-body {
+                    padding: 10px;
+                }
+
+                .data-placeholder {
+                    color: #0094ff
+                }
+
+                .alert-success {
+                    color: #3c763d;
+                    background-color: #dff0d8;
+                    margin-left: -100px;
+                    margin-right: -75px;
+                    border-color: #d6e9c6;
+                }
+
+                .card-header {
+                    padding: 0px;
+                }
+
+                .h2 {
+                    padding: 0px;
+                }
+
+                .form-group {
+                    color: #0094ff;
+                    margin-bottom: 58px;
+                    margin-left: 147px;
+                }
+
+                .text-muted {
+                    color: #777777;
+                    margin-left: 271px;
+                }
+
+                .btn-lg, .btn-group-lg > .btn {
+                    padding: 10px 16px;
+                    font-size: 18px;
+                    line-height: 1.3333333;
+                    margin-left: 157px;
+                    margin-right: -136px;
+                    border-radius: 6px;
+                }
+                .btn-block {
+                    display: block;
+                    width: 54%;
+                    margin-left: 323px;
+                }
+
+                input[type="radio"], input[type="checkbox"] {
+                    margin: -2px 0 0;
+                    margin-left: 403px;
+                    margin-top: 1px \9;
+                    line-height: normal;
+                }
+
+                .alert-info {
+                    color: #000000;
+                    margin-left: 4px;
+                    margin-right: 4px;
+                    background-color: #d9edf7;
+                    border-color: #bce8f1;
+                }
+            </style>*@
+        <style>
+            .main-content {
+                min-height: 0px !important;
+            }
+        </style>
+        <script>
+            $(function () {
+                $('[data-toggle="tooltip"]').tooltip()
+            })</script>
+
+    </environment>
+}
